@@ -1,5 +1,7 @@
 package list;
 
+import java.util.Iterator;
+
 @SuppressWarnings("unchecked")
 public class MyLinkedList<Item> implements MyList<Item> {
 
@@ -35,7 +37,7 @@ public class MyLinkedList<Item> implements MyList<Item> {
 
     @Override
     public Item get(int index) {
-        if (firstEntry == null || index < 0 ) throw new IndexOutOfBoundsException();
+        if (firstEntry == null || index < 0 || index <= getSize()) throw new IndexOutOfBoundsException();
         if (index == 0) return firstEntry.item;
 
         if (index ==1) return firstEntry.next.item;
@@ -45,7 +47,9 @@ public class MyLinkedList<Item> implements MyList<Item> {
 
     @Override
     public void set(int index, Item item) {
+        if (getSize() == 0) throw new IndexOutOfBoundsException();
         firstEntry.item = (Item) "B";
+
 
     }
 
@@ -53,12 +57,14 @@ public class MyLinkedList<Item> implements MyList<Item> {
     public int getSize() {
         Entry entry = firstEntry;
         int count = 0;
-        if (entry != null)
-            return 1;
-        else {
-            return 0;
+        while (entry != null){
+            Entry next = entry.next;
+            count++;
+            entry = next;
+        }
+            return count;
+
         }
 
 
-    }
 }
