@@ -10,7 +10,7 @@ public abstract class AfterAddAndRemoveIsEmpty extends MyListTest {
 
         MyList<String> list = initMyList();
 
-        list.add("Item1");
+        list.add("A");
 
         list.remove(0);
 

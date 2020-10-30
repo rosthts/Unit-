@@ -115,7 +115,12 @@ public class Main {
                           @Override protected MyList<String> initMyList() {
                               return suite.initMyList();
                           }
-                      }
+                      },
+                        new AfterAddАAndBAndRemoveIndexOReturnB() {
+                            @Override protected MyList<String> initMyList() {
+                                return suite.initMyList();
+                            }
+                        }
 
                 };
 
