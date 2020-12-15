@@ -23,6 +23,10 @@ abstract class ContainsAddedItem {
             assert false;
         }
 
+        if (!editableSet.contains(item)) {
+            throw new RuntimeException();
+        }
+
         assert editableSet.contains(item);
 
     }

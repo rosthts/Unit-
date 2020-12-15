@@ -1,12 +1,12 @@
 package list.tests;
 
 
-import list.MyList;
+import list.EditableList;
 
 
 public abstract class MyListTest {
 
-    protected abstract MyList<String> initMyList();
+    protected abstract EditableList<String> initMyList();
 
     protected abstract void run();
 

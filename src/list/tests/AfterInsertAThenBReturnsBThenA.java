@@ -1,14 +1,14 @@
 package list.tests;
 
 
-import list.MyList;
+import list.EditableList;
 
 
 public abstract class AfterInsertAThenBReturnsBThenA extends MyListTest {
 
     @Override protected void run() {
 
-        MyList<String> list = initMyList();
+        EditableList<String> list = initMyList();
 
         list.insert(0,"A");
         list.insert(0, "B");

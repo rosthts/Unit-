@@ -1,28 +1,26 @@
 package set;
 
 
-import action.Action1;
+import collection.Collection;
 import throwables.AlreadyExists;
 import throwables.NotExists;
 
 
-public interface EditableSet<Item> {
-
-
-    int getSize();
-
-    default boolean isEmpty() {
-        return getSize() == 0;
-    }
+public interface EditableSet<Item> extends Collection<Item> {
 
 
     boolean contains (Item item);
 
 
-    void forEach (Action1<Item> action);
-
-
     void addOrThrowAlreadyExists (Item item) throws AlreadyExists;
+
+    default void add(Item item) {
+        try {
+            addOrThrowAlreadyExists(item);
+        } catch (AlreadyExists e) {
+            throw new RuntimeException(e);
+        }
+    }
 
 
     void removeOrThrowNotExists (Item item) throws NotExists;

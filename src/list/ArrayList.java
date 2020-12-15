@@ -1,8 +1,10 @@
 package list;
 
 
-@SuppressWarnings("unchecked")
-public class MyArrayList<Item> implements MyList<Item> {
+import action.Action1;
+import action.Action2;
+
+public class ArrayList<Item> implements EditableList<Item> {
 
     private int size = 0;
     private Object[] array = new Object[10];
@@ -62,8 +64,14 @@ public class MyArrayList<Item> implements MyList<Item> {
         array[index] = item;
     }
 
+    @Override
+    public void forEachIndexed(Action2<Integer, Item> action) {
+        for (int i = 0; i < size; i++){
+            action.run(i, (Item) array[i]);
+        }
+    }
+
     @Override public int getSize() {
         return size;
     }
-
 }

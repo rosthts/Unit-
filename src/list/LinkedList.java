@@ -1,9 +1,10 @@
 package list;
 
-import java.util.Iterator;
+import action.Action1;
+import action.Action2;
 
 @SuppressWarnings("unchecked")
-public class MyLinkedList<Item> implements MyList<Item> {
+public class LinkedList<Item> implements EditableList<Item> {
 
 
     private class Entry {
@@ -99,5 +100,15 @@ public class MyLinkedList<Item> implements MyList<Item> {
         return count;
     }
 
+    @Override
+    public void forEachIndexed(Action2<Integer, Item> action) {
+        Entry entry = firstEntry;
+        int i = 0;
+        while (entry != null) {
+            action.run(i, (Item) entry);
+            entry = entry.next;
+            i++;
+        }
+    }
 
 }

@@ -1,14 +1,14 @@
 package list.tests;
 
 
-import list.MyList;
+import list.EditableList;
 
 
 public abstract class AfterRemoveElementLenghtDecrements extends MyListTest {
 
     @Override protected void run() {
 
-        MyList<String> list = initMyList();
+        EditableList<String> list = initMyList();
         for (int i = 0; i < 9; i++) {list.add(Integer.toString(i));}
         list.remove(5);
 

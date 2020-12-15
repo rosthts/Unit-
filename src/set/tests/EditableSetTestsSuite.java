@@ -116,6 +116,16 @@ public abstract class EditableSetTestsSuite {
                 return EditableSetTestsSuite.this.initEditableSet();
             }
         }.run();
+        new AfterRemoveNullThrowsException() {
+            @Override EditableSet<Object> initEditableSet() {
+                return EditableSetTestsSuite.this.initEditableSet();
+            }
+        }.run();
+        new AfterAddNullAndAddAContainsA() {
+            @Override EditableSet<Object> initEditableSet() {
+                return EditableSetTestsSuite.this.initEditableSet();
+            }
+        }.run();
 
     }
 
